@@ -1,0 +1,54 @@
+---
+import Nav from "../components/Nav.astro"
+import NavItem from "../components/NavItem.astro"
+import "@fontsource/barlow/900.css"
+import "@fontsource/barlow/700.css"
+import "@fontsource/barlow/500.css"
+import "@fontsource/barlow/200.css"
+
+export interface Props {
+	title: string
+	nav: string
+}
+
+const { title, nav } = Astro.props
+---
+
+<!DOCTYPE html>
+<html lang="sv">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body class="bg-midnight text-white max-w-3xl mx-auto pt-12 h-screen">
+		<header class="flex justify-end mb-40">
+			<Nav>
+				<NavItem href="/" active={nav === 'home'}>Home</NavItem>
+				<NavItem href="/about" active={nav === 'about'}>About</NavItem>
+				<NavItem href="/blog" active={nav === 'blog'}>blog (se)</NavItem>
+			</Nav>
+		</header>
+		<slot />
+		<style is:global>
+			html {
+				font-family: "Barlow", sans-serif;
+			}
+			::selection {
+				@apply bg-yellow-100 text-midnight
+			}
+			a {
+				@apply text-yellow-100
+			}
+			a:hover {
+				text-decoration: wavy underline;
+				text-underline-offset: 4px;
+			}
+			p {
+				@apply text-xl mb-6 leading-9			
+			}
+		</style>
+	</body>
+</html>

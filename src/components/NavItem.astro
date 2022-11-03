@@ -1,0 +1,18 @@
+---
+export interface Props {
+	href: string
+	active?: boolean
+}
+
+const { href, active } = Astro.props
+---
+
+<a
+	class:list={[
+		"text-lg text-white font-medium lowercase hover:underline-offset-[10px] hover:text-yellow-100",
+		active && "text-yellow-100",
+	]}
+	href={href}
+>
+	<slot />
+</a>
