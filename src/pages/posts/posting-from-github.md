@@ -1,7 +1,7 @@
 ---
 layout: ../../layouts/PostLayout.astro
 title: Posting from Github 🚀
-published: 2022-11-17
+published: 2022-11-18
 preamble: This post is made in GitHub
 tags: 
   - GitHub
