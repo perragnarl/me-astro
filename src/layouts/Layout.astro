@@ -1,14 +1,13 @@
 ---
-import Nav from "../components/Nav.astro"
-import NavItem from "../components/NavItem.astro"
 import "@fontsource/barlow/900.css"
 import "@fontsource/barlow/700.css"
 import "@fontsource/barlow/500.css"
-import "@fontsource/barlow/200.css"
+import Header from "../components/Header.astro"
+import Footer from "../components/Footer.astro"
 
 export interface Props {
 	title: string
-	nav: string
+	nav: "home" | "about" | "blog"
 }
 
 const { title, nav } = Astro.props
@@ -23,31 +22,41 @@ const { title, nav } = Astro.props
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body class="bg-midnight text-white max-w-3xl mx-auto pt-12 h-screen">
-		<header class="flex justify-end mb-40">
-			<Nav>
-				<NavItem href="/" active={nav === 'home'}>Home</NavItem>
-				<NavItem href="/about" active={nav === 'about'}>About</NavItem>
-				<NavItem href="/blog" active={nav === 'blog'}>blog (se)</NavItem>
-			</Nav>
-		</header>
-		<slot />
+	<body
+		class="bg-midnight text-slate-300 text-xl max-w-3xl mx-auto pt-12 h-screen flex flex-col"
+	>
+		<a
+			href="#main"
+			class="absolute top-0 py-3 -translate-y-20 focus:-translate-y-0 focus:transition-transform"
+			>Skip to content</a
+		>
+		<Header nav={nav} />
+		<main id="main">
+			<slot />
+		</main>
+		<Footer />
 		<style is:global>
 			html {
 				font-family: "Barlow", sans-serif;
 			}
 			::selection {
-				@apply bg-yellow-100 text-midnight
+				@apply bg-yellow-100 text-midnight;
 			}
 			a {
-				@apply text-yellow-100
+				@apply text-yellow-100;
 			}
-			a:hover {
+			a:hover,
+			a:focus,
+			a:active {
 				text-decoration: wavy underline;
 				text-underline-offset: 4px;
+				transition-property: color, background-color, border-color,
+					text-decoration-color, fill, stroke;
+				transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+				transition-duration: 150ms;
 			}
 			p {
-				@apply text-xl mb-6 leading-9			
+				@apply mb-6 leading-9;
 			}
 		</style>
 	</body>

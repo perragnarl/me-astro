@@ -1,1 +1,16 @@
-<h1 class="text-5xl leading-[1.125] font-bold mb-20 tracking-wide"><slot /></h1>
+---
+export interface Props {
+	isStart?: boolean
+}
+
+const { isStart = false } = Astro.props
+---
+
+<h1
+	class:list={[
+		"text-6xl leading-[1.125] font-bold tracking-wide",
+		isStart ? "mb-20" : "mb-8",
+	]}
+>
+	<slot />
+</h1>

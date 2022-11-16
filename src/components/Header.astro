@@ -1,0 +1,20 @@
+---
+import Logo from "./Logo.astro";
+import Nav from "./Nav/Nav.astro"
+import NavItem from "./Nav/NavItem.astro"
+
+export interface Props {
+	nav: string
+}
+
+const { nav } = Astro.props
+---
+
+<header class="flex justify-between mb-32 items-center">
+	<Logo />
+	<Nav>
+		<NavItem href="/" active={nav === "home"}>Home</NavItem>
+		<NavItem href="/about" active={nav === "about"}>About</NavItem>
+		<NavItem href="/blog" active={nav === "blog"}>blog (se)</NavItem>
+	</Nav>
+</header>

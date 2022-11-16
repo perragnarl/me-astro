@@ -1,0 +1,38 @@
+---
+import SectionHeading from "../Section/SectionHeading.astro"
+
+export interface Props {
+	title: string
+	published: Date
+	preamble?: string
+	tags?: string[]
+	url?: string
+}
+
+const { title, published, preamble, tags, url } = Astro.props
+---
+
+<div>
+	<div class="flex justify-between items-center mb-4 first-of-type:mt-16">
+		<SectionHeading el="h2" class="mb-0"
+			><a href={url} class="hover:underline-offset-[10px]">{title}</a>
+		</SectionHeading>
+		<small class="text-base text-slate-400"
+			>{new Date(published).toISOString().split("T")[0]}</small
+		>
+	</div>
+	<p class="text-slate-400">{preamble}</p>
+	<div class="flex gap-6">
+		{
+			tags &&
+				tags.map((tag) => (
+					<a
+						href="#"
+						class="flex items-center justify-center text-base text-midnight bg-yellow-100 py-2 px-3 rounded-sm hover:no-underline active:no-underline focus:no-underline hover:bg-white transition-colors"
+					>
+						<span class="leading-none">{tag}</span>
+					</a>
+				))
+		}
+	</div>
+</div>

@@ -1,0 +1,54 @@
+---
+import TimeLineItem from "./TimeLineItem.astro"
+---
+
+<script>
+	import { inView, animate, stagger } from "motion"
+
+	inView(".js-timeline", ({ target }) => {
+		animate(
+			target,
+			{ opacity: 1, transform: "none" },
+			{ delay: stagger(1.5, { start: 0.4, easing: "ease-in" }) }
+		)
+	})
+</script>
+
+<ol class="relative border-l border-slate-600 ml-4">
+	<TimeLineItem
+		start="2019"
+		end="Present"
+		title="TietoEvry"
+		subtitle="Frontend Architect"
+	/>
+	<TimeLineItem
+		start="2017"
+		end="2019"
+		title="Investis Digital"
+		subtitle="Fullstack developer"
+	/>
+	<TimeLineItem
+		start="2015"
+		end="2017"
+		title="Göteborgs Stad"
+		subtitle="Frontend Developer"
+	/>
+	<TimeLineItem
+		start="2011"
+		end="2015"
+		title="TNS Sifo"
+		subtitle="DP Exectutive"
+	/>
+	<TimeLineItem
+		start="2010"
+		end="2011"
+		title="Volvo IT"
+		subtitle="First line support"
+	/>
+	<TimeLineItem
+		start="2009"
+		end="2010"
+		title="Ericsson"
+		subtitle="Functional tester"
+	/>
+</ol>

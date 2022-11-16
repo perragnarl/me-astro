@@ -1,0 +1,17 @@
+---
+export interface Props {
+	el: any
+	class?: string
+}
+
+const { el: Element, class: classes } = Astro.props
+---
+
+<Element
+	class:list={[
+		"text-4xl leading-[1.125] font-bold tracking-wide mb-8",
+		classes,
+	]}
+>
+	<slot />
+</Element>

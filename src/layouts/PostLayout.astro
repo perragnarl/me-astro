@@ -1,0 +1,16 @@
+---
+import PageHeading from "../components/PageHeading.astro"
+import Layout from "./Layout.astro"
+
+const { frontmatter } = Astro.props
+---
+
+<Layout nav="blog" title={frontmatter.title}>
+	<article
+		class="prose prose-h1:text-white prose-a:text-yellow-100 prose-a:no-underline text-white text-xl"
+	>
+	<PageHeading>{frontmatter.title}</PageHeading>
+	<h2>{frontmatter.minutesread}</h2>
+		<slot />
+	</article>
+</Layout>

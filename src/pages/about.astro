@@ -1,14 +1,42 @@
 ---
 import PageHeading from "../components/PageHeading.astro"
+import Section from "../components/Section/Section.astro"
+import SectionHeading from "../components/Section/SectionHeading.astro"
+import TimeLine from "../components/TimeLine/TimeLine.astro"
 import Layout from "../layouts/Layout.astro"
 ---
 
 <Layout title="Per-Ragar Lindfors - About me" nav="about">
-	<main>
-		<section>
-			<PageHeading>About me</PageHeading>
-			<p>I'm a senior frontend architect working at Tietoevry, anim mollit in et deserunt. Pariatur anim consequat nostrud quis irure. Non culpa culpa non et sit occaecat elit adipisicing in amet nisi sit reprehenderit officia. Occaecat esse adipisicing nostrud et ex pariatur veniam.</p>
-			<p>Labore sint sunt amet ipsum. Ut adipisicing aute laboris duis do consequat. Nostrud consequat magna aliquip ea cillum eiusmod. Quis esse sit in duis. Do aliquip sit laboris veniam sit aliquip ullamco anim velit consequat. Elit mollit culpa duis minim sint nisi nostrud laboris magna aliqua officia tempor culpa.</p>
-		</section>
-	</main>
+	<PageHeading>About me</PageHeading>
+	<Section>
+		<img
+			src="me.jpg"
+			class="grayscale brightness-75 float-left w-36 h-36 rounded-2xl mr-8 mb-8 mt-5"
+			alt=""
+		/>
+		<p>
+			I'm a senior frontend architect working at Tietoevry, anim mollit in
+			et deserunt. Pariatur anim consequat nostrud quis irure. Non culpa
+			culpa non et sit occaecat elit adipisicing in amet nisi sit
+			reprehenderit officia. Occaecat esse adipisicing nostrud et ex
+			pariatur veniam.
+		</p>
+		<p>
+			Culpa in eu enim laboris aute do aliqua elit elit adipisicing elit
+			occaecat. Occaecat nulla ea duis ex labore commodo cupidatat
+			deserunt aliquip tempor fugiat fugiat Lorem velit. Consectetur
+			consectetur voluptate adipisicing proident est qui duis est aliquip
+			adipisicing. Nulla labore cillum non eiusmod adipisicing commodo est
+			et aute minim. Sunt proident reprehenderit culpa ea do exercitation
+			et officia eiusmod aliquip cillum non mollit cillum. Veniam laboris
+			reprehenderit excepteur laboris id veniam commodo proident.
+		</p>
+		<p>
+			Anim sint aute veniam id aliqua incididunt excepteur laboris voluptate occaecat. Incididunt labore duis tempor do et ullamco tempor deserunt nostrud Lorem officia. Velit laborum quis cillum incididunt cillum consectetur do nisi ut et. Voluptate cupidatat elit ea id culpa eu non reprehenderit ad ea. Aliquip consectetur reprehenderit adipisicing dolore ipsum aliquip et aliquip ut dolor minim adipisicing Lorem. Velit velit sint excepteur veniam ad consequat nostrud non laboris cillum ullamco deserunt sint. Id aliqua dolore minim anim aute.
+		</p>
+	</Section>
+	<Section>
+		<SectionHeading el="h2">My proffessional journey</SectionHeading>
+		<TimeLine />
+	</Section>
 </Layout>

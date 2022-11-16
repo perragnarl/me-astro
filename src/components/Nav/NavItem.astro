@@ -9,7 +9,7 @@ const { href, active } = Astro.props
 
 <a
 	class:list={[
-		"text-lg text-white font-medium lowercase hover:underline-offset-[10px] hover:text-yellow-100",
+		"text-lg text-slate-300 font-bold tracking-widest uppercase hover:underline-offset-[10px] hover:text-yellow-100 transition-colors",
 		active && "text-yellow-100",
 	]}
 	href={href}
