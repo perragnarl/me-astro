@@ -12,4 +12,6 @@ export default defineConfig({
 		remarkPlugins: [remarkReadingTime],
 		extendDefaultPlugins: true,
 	},
+	site: "https://perragnarl.github.io",
+	base: "/me-astro"
 })
