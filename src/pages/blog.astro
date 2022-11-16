@@ -1,27 +1,29 @@
 ---
-import BlogPreview from "../../components/Blog/BlogPreview.astro"
-import PageHeading from "../../components/PageHeading.astro"
-import Layout from "../../layouts/Layout.astro"
+import BlogPreview from "../components/Blog/BlogPreview.astro"
+import PageHeading from "../components/PageHeading.astro"
+import Layout from "../layouts/Layout.astro"
 
 interface Frontmatter {
 	title: string
 	preamble?: string
 	published: Date
 	tags?: string[]
+	minutesRead: string
 }
 
 const posts = await Astro.glob<Frontmatter>("./posts/*.md")
 
 const sortedPosts = posts.sort((a, b) => {
-	const aDate = a.frontmatter.published
-	const bDate = b.frontmatter.published
-	return bDate?.getTime() - aDate?.getTime()
+	return (
+		new Date(b.frontmatter.published).valueOf() -
+		new Date(a.frontmatter.published).valueOf()
+	)
 })
 ---
 
 <Layout title="Per-Ragar Lindfors - Blog" nav="blog">
 	<PageHeading>Blog</PageHeading>
-	<section>
+	<section class="mt-24">
 		{
 			sortedPosts.map((post) => (
 				<BlogPreview
@@ -29,6 +31,7 @@ const sortedPosts = posts.sort((a, b) => {
 					preamble={post.frontmatter.preamble}
 					published={post.frontmatter.published}
 					tags={post.frontmatter.tags}
+					minutesRead={post.frontmatter.minutesRead}
 					url={post.url}
 				/>
 			))

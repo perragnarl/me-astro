@@ -6,20 +6,26 @@ export interface Props {
 	published: Date
 	preamble?: string
 	tags?: string[]
+	minutesRead: string
 	url?: string
 }
 
-const { title, published, preamble, tags, url } = Astro.props
+const { title, published, preamble, tags, url, minutesRead } = Astro.props
 ---
 
-<div>
-	<div class="flex justify-between items-center mb-4 first-of-type:mt-16">
-		<SectionHeading el="h2" class="mb-0"
-			><a href={url} class="hover:underline-offset-[10px]">{title}</a>
+<div class="mt-10 pb-10 border-b border-slate-600 last-of-type:border-none">
+	<div class="flex justify-between mb-4">
+		<SectionHeading el="h2" class="mb-0">
+			<a href={url} class="hover:underline-offset-[10px]">{title}</a>
 		</SectionHeading>
-		<small class="text-base text-slate-400"
-			>{new Date(published).toISOString().split("T")[0]}</small
-		>
+		<small class="text-base text-slate-400 flex flex-col">
+			<span>
+				{new Date(published).toISOString().split("T")[0]}
+			</span>
+			<span>
+				{minutesRead}
+			</span>
+		</small>
 	</div>
 	<p class="text-slate-400">{preamble}</p>
 	<div class="flex gap-6">
