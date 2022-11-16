@@ -2,5 +2,5 @@
 
 This is my personal site, built with [Astro](https://astro.build/).
 
-[Visit the site](https://perragnarlindfors.se)
+[Visit the site](https://perragnarl.github.io/me-astro/)
 
